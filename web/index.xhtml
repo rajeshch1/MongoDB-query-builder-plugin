@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Query Builder</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form>
+        <center>
+            <h2>Basic Query Builder</h2>
+            <h:panelGrid columns="15" style="color:red">
+                <h:outputLabel value="Mongo Query"/>
+                <h:inputText id="fName" style="width: 410px" value="#{mongo.output}"/>
+                
+            </h:panelGrid>
+            
+            <h:panelGrid columns="8" style="color:rosybrown">
+               <h:outputLabel value="Field"/>
+               <h:inputText id="field" value="#{mongo.fld1}"/>
+               <h:selectOneMenu value = "#{mongo.oper}"> 
+                    <f:selectItem itemValue = "is" itemLabel = "is" /> 
+                    <f:selectItem itemValue = "gt" itemLabel = "gt" />
+                    <f:selectItem itemValue = "gte" itemLabel = "gte" />
+                    <f:selectItem itemValue = "lt" itemLabel = "lt" />
+                    <f:selectItem itemValue = "lte" itemLabel = "lte" />
+                    <f:selectItem itemValue = "ne" itemLabel = "ne" />
+                    <f:selectItem itemValue = "regex" itemLabel = "regex" />
+               </h:selectOneMenu> 
+               <h:outputLabel value="value"/>
+               <h:inputText  id="Add2" value="#{mongo.fld2}"/>
+                   
+               
+            </h:panelGrid>
+               
+           <h:commandButton value="submit" type="submit" action="#{mongo.Process()}" /> 
+           <h:commandButton value="reset" action="#{mongo.Resetnow()}"/>
+                            
+        </center>
+        </h:form>
+    </h:body>
+</html>
